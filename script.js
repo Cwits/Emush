@@ -6,7 +6,6 @@ const DISPLAY_WIDTH_BYTES = 1920;
 
 const pattern = [0xE7, 0xF3, 0xE7, 0xFF];
 
-
 const ws = new WebSocket("ws://" + location.host + "/ws");
 ws.binaryType = "arraybuffer";
 
@@ -125,35 +124,84 @@ ws.onmessage = (ev) => {
     packet = { header: null, data: null, footer: null };
 };
 
-
-// -------- buttons ----------
 function sendBtn(id,state){
-    ws.send(new Uint8Array([0x10,id,state]));
+    // ws.send(new Uint8Array([0x10,id,state]));
+    console.log("Button %d state %d", id, state);
 }
 
-document.getElementById("b0").onclick=()=>sendBtn(0,1);
-document.getElementById("b1").onclick=()=>sendBtn(1,1);
+function sendPad(id, state) {
+    //state 0 - released, 1 - pressed
+    console.log("Pad %d state %d", id, state);
+}
 
+// -------- buttons ----------
+function btnDown(btn) {
+    let num = parseInt(btn.replace("cc", ""), 10); // убираем "nn" и превращаем в число
+    // console.log("Pad number:", num);
+    sendBtn(num, 1);
+    // console.log("%s pressed", btn);
+}
+
+function btnUp(btn) {
+    let num = parseInt(btn.replace("cc", ""), 10); // убираем "nn" и превращаем в число
+    // console.log("Pad number:", num);
+    sendBtn(num, 0);
+    // console.log("%s released", btn);
+}
+
+for(let i=1; i<=127; ++i) {
+    const name = "cc"+i;
+    const el = document.getElementById(name);
+
+    if(!el) continue;
+    //get rid of encoders
+    if(i == 14 || i == 15 || (i >= 71 && i <= 79)) continue;
+
+    el.addEventListener("mousedown", e => btnDown(e.target.id));
+    el.addEventListener("mouseup", e => btnUp(e.target.id));
+
+}
+
+// --------- Pads -----------
+function padDown(pad) {
+    let num = parseInt(pad.replace("nn", ""), 10); // убираем "nn" и превращаем в число
+    // console.log("Pad number:", num);
+    sendPad(num, 1);
+    // console.log("pad %s pressed", pad)
+}
+
+function padUp(pad) {
+    let num = parseInt(pad.replace("nn", ""), 10); // убираем "nn" и превращаем в число
+    // console.log("Pad number:", num);
+    sendPad(num, 0);
+    // console.log("pad %s pressed", pad)
+}
+
+for(let i=36; i<=99; ++i) {
+    let name = "nn"+i;
+    document.getElementById(name).addEventListener("mousedown", e => padDown(e.target.id));
+    document.getElementById(name).addEventListener("mouseup", e => padUp(e.target.id));
+}
 
 // -------- encoder drag ----------
-let dragging=false;
-let lastX=0;
+// let dragging=false;
+// let lastX=0;
 
-fb.onmousedown=(e)=>{
-    dragging=true;
-    lastX=e.clientX;
-};
-window.onmouseup=()=>dragging=false;
+// fb.onmousedown=(e)=>{
+//     dragging=true;
+//     lastX=e.clientX;
+// };
+// window.onmouseup=()=>dragging=false;
 
-window.onmousemove=(e)=>{
-    if(!dragging) return;
-    let dx=e.clientX-lastX;
-    lastX=e.clientX;
+// window.onmousemove=(e)=>{
+//     if(!dragging) return;
+//     let dx=e.clientX-lastX;
+//     lastX=e.clientX;
 
-    if(Math.abs(dx)>3){
-        ws.send(new Int8Array([0x11,0,dx>0?1:-1]));
-    }
-};
+//     if(Math.abs(dx)>3){
+//         ws.send(new Int8Array([0x11,0,dx>0?1:-1]));
+//     }
+// };
 
 
 // -------- touchstrip ----------
