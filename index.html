@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div id="left" class="left">
+        <div class="three-split-container">
+            <div class="top-line">
+                <div class="even-spaced-container">
+                    <div class="circle" id="encoderRot">EncRot</div>
+                    <div class="circle" id="encoderMetro">EncMetro</div>
+                </div>
+
+                <button id="tapTempo" class="display-button">Tap Tempo</button>
+                <button id="metronome" class="display-button">Metronome</button>
+            </div>
+            <div class="mid-line">
+                <div class="three-split-container">
+                    <button id="delete" class="normal-button button-special1">Delete</button>
+                    <button id="undo" class="normal-button button-special1">Undo</button>
+                </div>
+            </div>
+            <div class="bottom-line">
+                <button id="Mute" class="small-button">Mute</button>
+                <button id="Solo" class="small-button">Solo</button>
+                <button id="Stop" class="small-button">Stop</button>
+                <div class="left-controls">
+                    <div class="left-left-controls">
+                        <button id="Convert" class="normal-button left-control-btn">Convert</button>
+                        <button id="DoubleLoop" class="normal-button left-control-btn">Double Loop</button>
+                        <button id="Quantize" class="normal-button left-control-btn">Quantize</button>
+                        <button id="Duplicate" class="normal-button left-control-btn">Duplicate</button>
+                        <button id="New" class="normal-button left-control-btn">New</button>
+                        <button id="FixedLength" class="normal-button left-control-btn">Fixed Length</button>
+                        <button id="Automate" class="normal-button left-control-btn">Automate</button>
+                        <button id="Record" class="normal-button left-control-btn">Record</button>
+                        <button id="Play" class="normal-button left-control-btn">Play</button>
+                    </div>
+                    <div id="touch" class="touchstrip">
+                        <!-- some leds -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="center" class="center">
+        <div class="three-split-container">
+            <div class="top-line">
+                <div class="even-spaced-container">
+                    <div class="circle" id="encoder1">Enc1</div>
+                    <div class="circle" id="encoder2">Enc2</div>
+                    <div class="circle" id="encoder3">Enc3</div>
+                    <div class="circle" id="encoder4">Enc4</div>
+                    <div class="circle" id="encoder5">Enc5</div>
+                    <div class="circle" id="encoder6">Enc6</div>
+                    <div class="circle" id="encoder7">Enc7</div>
+                    <div class="circle" id="encoder8">Enc8</div>
+                </div>
+                <div class="even-spaced-container">
+                    <button id="cc102" class="display-button">cc102</button>
+                    <button id="cc103" class="display-button">cc103</button>
+                    <button id="cc104" class="display-button">cc104</button>
+                    <button id="cc105" class="display-button">cc105</button>
+                    <button id="cc106" class="display-button">cc106</button>
+                    <button id="cc107" class="display-button">cc107</button>
+                    <button id="cc108" class="display-button">cc108</button>
+                    <button id="cc109" class="display-button">cc109</button>
+                </div>
+            </div>
+            <div class="mid-line">
+                <canvas id="fb" width="960" height="180" class="display"></canvas>
+            </div>
+            <div class="bottom-line">
+                <div class="even-spaced-container">
+                    <button id="cc20" class="display-button">cc20</button>
+                    <button id="cc21" class="display-button">cc21</button>
+                    <button id="cc22" class="display-button">cc22</button>
+                    <button id="cc23" class="display-button">cc23</button>
+                    <button id="cc24" class="display-button">cc24</button>
+                    <button id="cc25" class="display-button">cc25</button>
+                    <button id="cc26" class="display-button">cc26</button>
+                    <button id="cc27" class="display-button">cc27</button>
+                </div>
+                <div class="pad-container">
+                    <!-- ROW 1 -->
+                    <button id="nn92" class="pad">nn92</button>
+                    <button id="nn93" class="pad">nn93</button>
+                    <button id="nn94" class="pad">nn94</button>
+                    <button id="nn95" class="pad">nn95</button>
+                    <button id="nn96" class="pad">nn96</button>
+                    <button id="nn97" class="pad">nn97</button>
+                    <button id="nn98" class="pad">nn98</button>
+                    <button id="nn99" class="pad">nn99</button>
+                    <!-- ROW 1 -->
+                    <button id="nn84" class="pad">nn84</button>
+                    <button id="nn85" class="pad">nn85</button>
+                    <button id="nn86" class="pad">nn86</button>
+                    <button id="nn87" class="pad">nn87</button>
+                    <button id="nn88" class="pad">nn88</button>
+                    <button id="nn89" class="pad">nn89</button>
+                    <button id="nn90" class="pad">nn90</button>
+                    <button id="nn91" class="pad">nn91</button>
+                    <!-- ROW 1 -->
+                    <button id="nn76" class="pad">nn76</button>
+                    <button id="nn77" class="pad">nn77</button>
+                    <button id="nn78" class="pad">nn78</button>
+                    <button id="nn79" class="pad">nn79</button>
+                    <button id="nn80" class="pad">nn80</button>
+                    <button id="nn81" class="pad">nn81</button>
+                    <button id="nn82" class="pad">nn82</button>
+                    <button id="nn83" class="pad">nn83</button>
+                    <!-- ROW 1 -->
+                    <button id="nn68" class="pad">nn68</button>
+                    <button id="nn69" class="pad">nn69</button>
+                    <button id="nn70" class="pad">nn70</button>
+                    <button id="nn71" class="pad">nn71</button>
+                    <button id="nn72" class="pad">nn72</button>
+                    <button id="nn73" class="pad">nn73</button>
+                    <button id="nn74" class="pad">nn74</button>
+                    <button id="nn75" class="pad">nn75</button>
+                    <!-- ROW 1 -->
+                    <button id="nn60" class="pad">nn60</button>
+                    <button id="nn61" class="pad">nn61</button>
+                    <button id="nn62" class="pad">nn62</button>
+                    <button id="nn63" class="pad">nn63</button>
+                    <button id="nn64" class="pad">nn64</button>
+                    <button id="nn65" class="pad">nn65</button>
+                    <button id="nn66" class="pad">nn66</button>
+                    <button id="nn67" class="pad">nn67</button>
+                    <!-- ROW 1 -->
+                    <button id="nn52" class="pad">nn52</button>
+                    <button id="nn53" class="pad">nn53</button>
+                    <button id="nn54" class="pad">nn54</button>
+                    <button id="nn55" class="pad">nn55</button>
+                    <button id="nn56" class="pad">nn56</button>
+                    <button id="nn57" class="pad">nn57</button>
+                    <button id="nn58" class="pad">nn58</button>
+                    <button id="nn59" class="pad">nn59</button>
+                    <!-- ROW 1 -->
+                    <button id="nn44" class="pad">nn44</button>
+                    <button id="nn45" class="pad">nn45</button>
+                    <button id="nn46" class="pad">nn46</button>
+                    <button id="nn47" class="pad">nn47</button>
+                    <button id="nn48" class="pad">nn48</button>
+                    <button id="nn49" class="pad">nn49</button>
+                    <button id="nn50" class="pad">nn50</button>
+                    <button id="nn51" class="pad">nn51</button>
+                    <!-- ROW 1 -->
+                    <button id="nn36" class="pad">nn36</button>
+                    <button id="nn37" class="pad">nn37</button>
+                    <button id="nn38" class="pad">nn38</button>
+                    <button id="nn39" class="pad">nn39</button>
+                    <button id="nn40" class="pad">nn40</button>
+                    <button id="nn41" class="pad">nn41</button>
+                    <button id="nn42" class="pad">nn42</button>
+                    <button id="nn43" class="pad">nn43</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="right" class="right">
+        <div class="three-split-container">
+            <div class="top-line">
+                <div class="circle" id="encoderMaster">EncM</div>
+                <button id="setup" class="display-button">Setup</button>
+                <button id="user" class="display-button">User</button>
+            </div>
+            <div class="mid-line">
+                <button id="addDevice" class="normal-button button-special1">Add Device</button>
+                <button id="device" class="normal-button button-special1">Device</button>
+                <button id="mix" class="normal-button button-special1">Mix</button>
+                <button id="addTrack" class="normal-button button-special1">Add Track</button>
+                <button id="Browser" class="normal-button button-special1">Browser</button>
+                <button id="Clip" class="normal-button button-special1">Clip</button>
+            </div>
+            <div class="bottom-line">
+                <div class="right-controls">
+                    <div class="right-left-controls">
+                        <button id="Master" class="small-button right-control-btn">Master</button>
+                        <button id="32t" class="normal-button right-control-btn">1/32t</button>
+                        <button id="32" class="normal-button right-control-btn">1/32</button>
+                        <button id="16t" class="normal-button right-control-btn">1/16t</button>
+                        <button id="16" class="normal-button right-control-btn">1/16</button>
+                        <button id="8t" class="normal-button right-control-btn">1/8t</button>
+                        <button id="8" class="normal-button right-control-btn">1/8</button>
+                        <button id="4t" class="normal-button right-control-btn">1/4t</button>
+                        <button id="4" class="normal-button right-control-btn">1/4</button>
+                    </div>
+                    <div class="right-right-controls">
+                        <div class="right-control-right-buttons">
+                            <div class="direction-buttons">
+                                <button id="Up" class="small-button">Up</button>
+                                <button id="Left" class="small-button">Left</button>
+                                <button id="Right" class="small-button">Right</button>
+                                <button id="Down" class="small-button">Down</button>
+                            </div>
+                            <div class="norm-small-norm">
+                                <button id="Repeat" class="normal-button">Repeat</button>
+                                <button id="Accent" class="normal-button">Accent</button>
+                                <button id="Scale" class="small-button">Scale</button>
+                                <button id="Layout" class="small-button">Layout</button>
+                                <button id="Note" class="normal-button">Note</button>
+                                <button id="Session" class="normal-button">Session</button>
+                            </div>
+                            <div class="octave">
+                                <div class="direction-buttons">
+                                    <button id="OctaveUp" class="small-button">Octave Up</button>
+                                    <button id="PageLeft" class="small-button">Page Left</button>
+                                    <button id="PageRight" class="small-button">Page Right</button>
+                                    <button id="OctaveDown" class="small-button">Octave Down</button>
+                                </div>
+                            </div>
+                            <div class="shiftselect">
+                                <button id="Shift" class="small-button">Shift</button>
+                                <button id="Seleft" class="small-button">Select</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+<!--<div id="touch" style="width:80px;height:300px;background:#333;margin-top:10px"></div>-->
+
+<script src="./script.js"></script>
+</body>
+</html>

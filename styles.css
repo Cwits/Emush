@@ -1,0 +1,204 @@
+body {
+    background-color: #000000;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 1080px;
+}
+  
+.left {
+    flex: 0 0 17%; /* не растет, не сжимается, занимает 10% */
+    background-color: lightblue;
+}
+  
+.right {
+    flex: 0 0 17%; /* тоже 10% */
+    background-color: yellow;
+}
+  
+.center {
+    flex: 1; /* занимает всё оставшееся место */
+    background-color: lightcoral;
+}
+  
+.three-split-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.top-line {
+    flex: 0 0 10%;
+}
+
+.mid-line {
+    flex: 0 0 200px; /* 160 display + 20 from top and btm */
+}
+
+.bottom-line {
+    flex: 0 0 1;
+    padding-top: 10px;
+}
+
+.display {
+    /* position:relative */
+    background-color: #000000;
+    /* margin-top: 1.5%; */
+    margin-left: 1.5%;
+    /* margin-bottom: 1.5%; */
+}
+
+.even-spaced-container {
+    display: flex;
+    justify-content: space-between; /* равные промежутки между элементами */
+    width: 100%;
+    /* padding: 10px; */
+}
+
+.circle {
+    width: 50px;          /* ширина круга */
+    height: 50px;         /* высота круга */
+    background-color: #4CAF50; /* цвет заливки */
+    color: white;          /* цвет текста */
+    display: flex;
+    align-items: center;   /* центрируем по вертикали */
+    justify-content: center; /* центрируем по горизонтали */
+    border-radius: 50%;    /* делает квадрат кругом */
+    font-weight: bold;
+    font-size: 16px;
+    /* margin: 10px; */
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    /* margin: 10px */
+}
+
+.display-button {
+    width: 100px;
+    height: 40px;
+    /* margin: 10px; */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.small-button {
+    width: 70px;
+    height: 40px;
+}
+
+.normal-button {
+    width: 70px;
+    height: 70px;
+    /* margin: 5px; */
+    /* margin-left:10px; */
+}
+
+.button-special1 {
+    margin-left: 10px; 
+    margin-top:5px; 
+    margin-bottom:5px;
+}
+
+.pad-container {
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8 колонок равной ширины */
+    grid-template-rows: repeat(8, 1fr);    /* 8 рядов равной высоты */
+    gap: 5px;                              /* промежутки между ячейками */
+    width: 100%;                           /* общая ширина сетки */
+    height: 100%;                          /* общая высота сетки */
+}
+
+.pad {
+    width: 90px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.left-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.left-left-controls {
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    gap: 8px
+}
+
+.left-control-btn {
+    display: flex;
+}
+
+.touchstrip {
+    width: 80px;
+    height: 100%;
+    background:#333;
+    margin-top:10px; 
+    display: flex;
+}
+
+.right-controls {
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.right-left-controls {
+    display: grid;
+    grid-template-rows: repeat(9, 1fr);
+    height: 100%;
+    /* gap: 2px; */
+}
+
+.right-right-controls {
+    margin-top: 10px;
+    height: 100%;
+}
+
+.right-control-btn {
+    display: flex;
+}
+
+.right-control-right-buttons {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    height:740px;
+}
+
+.direction-buttons { 
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    justify-content: center;
+    align-items: center;
+}
+
+#Up    { grid-area: 1 / 1; margin-left:50%; }
+#Left  { grid-area: 2 / 1; }
+#Right { grid-area: 2 / 3; }
+#Down { grid-area: 3 / 1; margin-left:50%; }
+
+#OctaveUp    { grid-area: 1 / 1; margin-left:50%; }
+#PageLeft  { grid-area: 2 / 1; }
+#PageRight { grid-area: 2 / 3; }
+#OctaveDown { grid-area: 3 / 1; margin-left:50%; }
+
+
+.norm-small-norm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
