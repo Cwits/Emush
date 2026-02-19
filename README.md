@@ -1,1 +1,3 @@
-Emulator of Ableton Push 2 device to make development life bit easier
+Emulator of Ableton Push 2 device to make development life bit easier...
+
+Connects c++ code through TCP socket to Web representation of mentioned device :)
